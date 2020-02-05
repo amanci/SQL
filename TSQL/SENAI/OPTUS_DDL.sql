@@ -1,0 +1,39 @@
+USE master;
+GO
+
+CREATE DATABASE DbOptus;
+GO
+
+USE DbOptus;
+GO
+
+CREATE TABLE TblTipoUsuario(
+	IdTipoUsuario INT PRIMARY KEY IDENTITY (1, 1),
+	Titulo VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE TblArtista(
+	IdArtista INT PRIMARY KEY IDENTITY(1,1),
+	NomeArtista VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE TblEstilo(
+	IdEstilo INT PRIMARY KEY IDENTITY(1,1),
+	Nome VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE TblUsuario(
+	IdUsuario INT PRIMARY KEY IDENTITY (1,1),
+	Nome VARCHAR(200) NOT NULL,
+	FKIdTipoUsuario INT FOREIGN KEY REFERENCES TblTipoUsuario (IdTipoUsuario)
+);
+
+CREATE TABLE TblAlbum(
+	IdAlbum INT PRIMARY KEY IDENTITY (1,1),
+	Nome VARCHAR(200), 
+	DataLancamento DATE, 
+	QtdMinutos TIME, 
+	Visualizacao BIGINT, 
+	FKIdArtista INT FOREIGN KEY REFERENCES TblArtista (IdArtista),
+	FKIdEstilo INT FOREIGN KEY REFERENCES TblEstilo (IdEstilo),
+);

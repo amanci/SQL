@@ -1,0 +1,9 @@
+
+INSERT INTO TblGenero (Nome) VALUES ('G�NERO1'), ('G�NERO2'), ('G�NERO3'), ('G�NERO4'), ('G�NERO5');
+INSERT INTO TblAutor (NomeAutor) VALUES ('MACHADO DE ASSIS'), ('ARIANO SUASSUNA'), ('GRACILIANO RAMOS'), ('GUIMAR�ES ROSA'), ('CARLOS DRUMMOND DE ANDRADE');
+INSERT INTO TblLivro(Titulo, FKIdGenero, FKIdAutor) VALUES ('LIVRO1', 1, 1), ('LIVRO2', 2, 2), ('LIVRO3', 3, 3), ('LIVRO4', 4, 4), ('LIVRO55', 5, 5);
+
+UPDATE TblGenero  SET Nome = 'G�NERO 6' WHERE IdGenero = 1;
+UPDATE TblLivro SET FKIdGenero = 5 WHERE IdLivro = 1 ;
+DELETE FROM TblLivro WHERE IdLivro = 2;
+DELETE FROM TblAutor WHERE IdAutor = 2;
